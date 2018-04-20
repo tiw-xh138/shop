@@ -2,12 +2,12 @@ package entity;
 
 public class Items {
 
-	private int id;// 商品编号
-	private String name;// 商品名称
-	private String city;// 产地
-	private int price;// 价格
-	private int number;// 库存
-	private String picture;// 商品图片
+	private int id;// 品
+	private String name;// 品
+	private String city;// 
+	private int price;// 鄹
+	private int number;// 
+	private String picture;// 品图片
 
 	public int getId() {
 		return id;
@@ -56,5 +56,6 @@ public class Items {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
+
 
 }
