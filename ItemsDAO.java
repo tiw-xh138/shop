@@ -1,5 +1,4 @@
 package dao;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,10 +14,10 @@ public class ItemsDAO {
 		Connection dbConn = null;
 		Statement statement = null;
 		ResultSet rs = null;
-		ArrayList<Items> list = new ArrayList<Items>(); // ÉÌÆ·¼¯ºÏ
+		ArrayList<Items> list = new ArrayList<Items>(); // å•†å“é›†åˆ
 		try {
 			dbConn = DBHelper.getConnection();
-			String sql = "select * from items;"; // SQLÓï¾ä
+			String sql = "select * from items;"; // SQLè¯­å¥
 			statement = dbConn.createStatement();
 			rs=statement.executeQuery(sql);
 			
@@ -31,14 +30,14 @@ public class ItemsDAO {
 				item.setNumber(rs.getInt(4));
 				item.setPrice(rs.getInt(5));
 				item.setPicture(rs.getString(6));
-				list.add(item);// °ÑÒ»¸öÉÌÆ·¼ÓÈë¼¯ºÏ
+				list.add(item);// æŠŠä¸€ä¸ªå•†å“åŠ å…¥é›†åˆ
 			}
-			return list; // ·µ»Ø¼¯ºÏ¡£
+			return list; // è¿”å›é›†åˆã€‚
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return null;
 		} finally {
-			// ÊÍ·ÅÊı¾İ¼¯¶ÔÏó
+			// é‡Šæ”¾æ•°æ®é›†å¯¹è±¡
 			if (rs != null) {
 				try {
 					rs.close();
@@ -47,7 +46,7 @@ public class ItemsDAO {
 					ex.printStackTrace();
 				}
 			}
-			// ÊÍ·ÅÓï¾ä¶ÔÏó
+			// é‡Šæ”¾è¯­å¥å¯¹è±¡
 			if (statement != null) {
 				try {
 					statement.close();
@@ -60,15 +59,15 @@ public class ItemsDAO {
 
 	}
 	
-	// ¸ù¾İÉÌÆ·±àºÅ»ñµÃÉÌÆ·×ÊÁÏ
+	// æ ¹æ®å•†å“ç¼–å·è·å¾—å•†å“èµ„æ–™
 	public Items getItemsById(int id) {
 		Connection dbConn = null;
 		PreparedStatement statement = null;
 		ResultSet rs = null;
-		ArrayList<Items> list = new ArrayList<Items>(); // ÉÌÆ·¼¯ºÏ
+		ArrayList<Items> list = new ArrayList<Items>(); // å•†å“é›†åˆ
 		try {
 			dbConn = DBHelper.getConnection();
-			String sql = "select * from items where id=?;"; // SQLÓï¾ä
+			String sql = "select * from items where id=?;"; // SQLè¯­å¥
 			
 			statement = dbConn.prepareStatement(sql);
 			statement.setInt(1, id);
@@ -92,7 +91,7 @@ public class ItemsDAO {
 			ex.printStackTrace();
 			return null;
 		}finally {
-			// ÊÍ·ÅÊı¾İ¼¯¶ÔÏó
+			// é‡Šæ”¾æ•°æ®é›†å¯¹è±¡
 			if (rs != null) {
 				try {
 					rs.close();
@@ -101,7 +100,7 @@ public class ItemsDAO {
 					ex.printStackTrace();
 				}
 			}
-			// ÊÍ·ÅÓï¾ä¶ÔÏó
+			// é‡Šæ”¾è¯­å¥å¯¹è±¡
 			if (statement != null) {
 				try {
 					statement.close();
@@ -114,20 +113,20 @@ public class ItemsDAO {
 		}
 	}
 	
-	//»ñÈ¡×î½üä¯ÀÀµÄÇ°ÎåÌõÉÌÆ·ĞÅÏ¢
+	//è·å–æœ€è¿‘æµè§ˆçš„å‰äº”æ¡å•†å“ä¿¡æ¯
 		public ArrayList<Items> getViewList(String list)
 		{
 			System.out.println("list:"+list);
 			ArrayList<Items> itemlist = new ArrayList<Items>();
-			int iCount=5; //Ã¿´Î·µ»ØÇ°ÎåÌõ¼ÇÂ¼
+			int iCount=5; //æ¯æ¬¡è¿”å›å‰äº”æ¡è®°å½•
 			if(list!=null&&list.length()>0)
 			{
 			    String[] arr = list.split(",");
 			    System.out.println("arr.length="+arr.length);
-			    //Èç¹ûÉÌÆ·¼ÇÂ¼´óÓÚµÈÓÚ5Ìõ
+			    //å¦‚æœå•†å“è®°å½•å¤§äºç­‰äº5æ¡
 			    if(arr.length>=5)
 			    {
-			       for(int i=arr.length-1;i>=arr.length-iCount;i--)//µ¹Êä³öä¯ÀÀ¼ÇÂ¼
+			       for(int i=arr.length-1;i>=arr.length-iCount;i--)//å€’è¾“å‡ºæµè§ˆè®°å½•
 			       {
 			    	  itemlist.add(getItemsById(Integer.parseInt(arr[i])));  
 			       }
