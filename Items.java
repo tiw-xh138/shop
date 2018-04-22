@@ -8,7 +8,6 @@ public class Items {
 	private int price;// ۸
 	private int number;// 
 	private String picture;// ƷͼƬ
-
 	public int getId() {
 		return id;
 	}
