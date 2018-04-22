@@ -19,7 +19,7 @@ public class DBHelper {
 	
 		private static Connection dbConn=null;
 		
-		//¾²Ì¬´úÂë¿é¸ºÔğ¼ÓÔØÇı¶¯
+		//é™æ€ä»£ç å—è´Ÿè´£åŠ è½½é©±åŠ¨
 		static 
 		{
 			try
@@ -32,7 +32,7 @@ public class DBHelper {
 			}
 		}
 		
-		//µ¥ÀıÄ£Ê½·µ»ØÊı¾İ¿âÁ¬½Ó¶ÔÏó
+		//å•ä¾‹æ¨¡å¼è¿”å›æ•°æ®åº“è¿æ¥å¯¹è±¡
 		public static Connection getConnection() throws Exception
 		{
 			if(dbConn==null)
@@ -44,7 +44,7 @@ public class DBHelper {
 		}
 		
 		
-		//²âÊÔ
+		//æµ‹è¯•
 		public static void main(String[] args) {
 			
 			try
@@ -52,7 +52,7 @@ public class DBHelper {
 			   Connection conn = DBHelper.getConnection();
 			   if(conn!=null)
 			   {
-				   System.out.println("Êı¾İ¿âÁ¬½ÓÕı³££¡");
+				   System.out.println("æ•°æ®åº“è¿æ¥æ­£å¸¸ï¼");
 				   String str="select * from items";
 				   Statement statement = null;
 				   statement = dbConn.createStatement();
@@ -72,7 +72,7 @@ public class DBHelper {
 			   }
 			   else
 			   {
-				   System.out.println("Êı¾İ¿âÁ¬½ÓÒì³££¡");
+				   System.out.println("æ•°æ®åº“è¿æ¥å¼‚å¸¸ï¼");
 			   }
 			}
 			catch(Exception ex)
@@ -85,6 +85,7 @@ public class DBHelper {
 		
 		
 		
+	
 	
 	
 }	
